@@ -1,0 +1,49 @@
+def integracion(a: Double, b: Double, f: Double => Double): Double ={
+  val xm = (a + b) / 2
+  val resultado = (b - a) * (f(a) + 4 * f(xm) + f(b)) / 6
+  resultado
+}
+
+
+def control(esp: Double, obt: Double): Double ={
+  val calculoerror = math.abs(esp - obt)
+  calculoerror
+}
+
+
+
+
+def f1(x: Double): Double = -1*(math.pow(x,2))+8*x-12
+val r1= integracion(3,5,f1)
+
+
+def f2(x:Double): Double = 3*(math.pow(x,2))
+val r2 = integracion(0,2,f2)
+
+
+def f3(x:Double): Double = x+2*math.pow(x,2)-math.pow(x,3)+5*math.pow(x,4)
+val r3 = integracion(-1,1,f3)
+
+
+def f4(x:Double): Double = (2*x+1)/(math.pow(x,2)+x)
+val r4 = integracion(1,2,f4)
+
+
+def f5(x: Double): Double= math.pow(2.71828, x)
+val r5 = integracion(0,1,f5)
+
+
+def f6(x:Double): Double = 1/math.pow(x-1,1/2)
+val r6 = integracion(2,3,f6)
+
+
+def f7(x: Double): Double = 1/(1+math.pow(x,2))
+val r7 = integracion(0,1,f7)
+
+val e1=control(7.33,r1)
+val e2=control(8, r2)
+val e3 = control(3.333, r3)
+val e4 = control(1.09861, r4)
+val e5 = control(1.71828, r5)
+val e6 = control(0.828427, r6)
+val e7 = control(0.785398, r7)
